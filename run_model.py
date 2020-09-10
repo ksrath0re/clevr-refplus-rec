@@ -1,9 +1,3 @@
-# Copyright 2017-present, Facebook, Inc.
-# All rights reserved.
-#
-# This source code is licensed under the license found in the
-# LICENSE file in the root directory of this source tree.
-
 import argparse
 import json
 import random
@@ -36,7 +30,7 @@ parser.add_argument('--use_gpu', default=1, type=int)
 
 # For running on a preprocessed dataset
 parser.add_argument('--input_refexp_h5', default='data/val_refexps.h5')
-parser.add_argument('--input_features_h5', default='data-ssd/val_features.h5')
+parser.add_argument('--input_features_h5', default='data/val_features.h5')
 parser.add_argument('--use_gt_programs', default=0, type=int)
 
 # This will override the vocab stored in the checkpoint;
@@ -68,7 +62,7 @@ def main(args):
     ckp_path = 'checkpoints/example-30.pt'
     model_path = str(Path(ckp_path))
     names = ckp_path.split('/')[1].split('.')[0]
-    iou_path = 'results/validation-iou_'+names+'.txt'
+    iou_path = 'results/validation-iou_' + names + '.txt'
     iou_file = open(str(Path(iou_path)), 'w')
     refplus_model = load_model(model_path, load_vocab(vocab_path))
 
@@ -86,9 +80,8 @@ def main(args):
     #     with open(args.family_split_file, 'r') as f:
     #         loader_kwargs['refexp_families'] = json.load(f)
     val_loader = ClevrDataLoader(**val_loader_kwargs)
-    #with ClevrDataLoaderH5(**loader_kwargs) as loader:
+    # with ClevrDataLoaderH5(**loader_kwargs) as loader:
     run_batch(args, refplus_model, val_loader, iou_file)
-
 
 
 def build_cnn(args, dtype):

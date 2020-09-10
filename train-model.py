@@ -62,9 +62,6 @@ optimizer = torch.optim.Adam(refplus_model.parameters(), 1e-04)
 loss_fn = torch.nn.CrossEntropyLoss().to(device)
 
 
-# In[10]:
-
-
 def train_epoch(epoch):
     torch.set_grad_enabled(True)
     batch_size = 48
@@ -154,4 +151,3 @@ while epoch < 30:
     save_checkpoint(epoch, 'checkpoint-{:02d}.pt'.format(epoch))
 
 save_checkpoint(epoch, 'final_checkpoint.pt'.format(epoch))
-

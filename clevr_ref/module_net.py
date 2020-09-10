@@ -24,13 +24,12 @@ class ResidualBlock(nn.Module):
             out = F.relu(res + out)
         else:
             out = F.relu(out)
-        # print("res out ka shape : ", out.size())
+
         return out
 
 
 def build_segment_predictor(module_C):
-    print("In build segment_predictor -- ")
-    # print("module-C -- ", module_C)
+
     res_block = ResidualBlock(module_C, with_residual=True)
     layers = [res_block]
 
@@ -136,12 +135,10 @@ class RefPlusModel(nn.Module):
 
     def forward(self, feats, programs):
         batch_size = feats.size(0)
-        # print("batch_size  : ", batch_size)
         assert batch_size == len(programs)
 
         feat_input_volume = self.stem(feats)  # generate lower-dimensional features
 
-        # print("feat_input_volume ka shape  : ", feat_input_volume.size())
         neural_module_network_outputs = []
         self._attention_sum = 0
         for n in range(batch_size):
@@ -174,7 +171,7 @@ class RefPlusModel(nn.Module):
             neural_module_network_outputs.append(output)
 
         neural_module_network_outputs = torch.cat(neural_module_network_outputs, 0)
-        # print("neural_module_network_outputs ka shape : ", neural_module_network_outputs.size())
+
         return self.predictor(neural_module_network_outputs)
 
     def forward_and_return_intermediates(self, program_var, feats_var):
@@ -185,8 +182,6 @@ class RefPlusModel(nn.Module):
         saved_output = None
         for i in reversed(program_var.data.cpu().numpy()[0]):
             module_type = self.vocab['program_idx_to_token'][i]
-            if module_type != '<NULL>':
-                print("Module Type : ", module_type)
 
             if module_type in {'<NULL>', '<START>', '<END>', '<UNK>'}:
                 continue
