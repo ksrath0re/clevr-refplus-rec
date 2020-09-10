@@ -1,5 +1,11 @@
-# clevr-refplus
+# Referring Expression Comprehension on CLEVR-Ref+ Dataset
 
+
+
+
+![](https://raw.githubusercontent.com/ksrath0re/clevr-refplus/master/Example.JPG)
+> Example of Referring Expression Comprehension on CLEVR-Ref+ Dataset
+![](https://github.com/ksrath0re/clevr-refplus/blob/master/Example.JPG)
 You can set up a virtual environment to run the code like this:
 
 ```bash
@@ -63,7 +69,6 @@ We simply use `train-model.py` file and run it in the root directory. If you wan
 
 ```
 python -u train-model.py | tee <File-name.txt>
-
 ```
 We trained our model for 30 epochs on single GPU (Yeah..... That was so much time consuming).
 
@@ -72,6 +77,5 @@ We trained our model for 30 epochs on single GPU (Yeah..... That was so much tim
 For testing the model, we use ` run_model.py ` file and run it in the root directory as below:
 
 ```
-python -u run_model.py --ckp_path checkpoints/<checkpoint-file-name>.pt --result_dir val_results | tee <File-name>.txt
-
+python -u run_model.py --ckp_path <checkpoint-file>.pt --result_dir <dir_name> | tee <File-name>.txt
 ```
