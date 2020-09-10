@@ -1,11 +1,15 @@
 # Referring Expression Comprehension on CLEVR-Ref+ Dataset
 
+Referring Expression Comprehension (REC) is an important area of research in Natural Language Processing (NLP) and vision domain. It involves locating an object in
+an image described by a natural language referring expression. This task requires information from both Natural Language and Vision aspect. The task is compositional
+in nature as it requires visual reasoning as underlying process along with relationships among the objects in the image. Recent works based on modular networks have
+displayed to be an effective framework for performing visual reasoning task.
+Although this approach is effective, it has been established that the current benchmark datasets for referring expression comprehension suffer from bias. Recent work
+on CLEVR-Ref+ dataset deals with bias issues by constructing a synthetic dataset and provides an approach for the aforementioned task which performed better than
+the previous state-of-the-art models as well as showing the reasoning process. This work aims to improve the performance on CLEVR-Ref+ dataset and achieve comparable interpretability. In this work, the neural module network approach with the attention map technique is employed. The neural module network is composed of the primitive operation modules which are specific to their functions and the output is generated using a separate segmentation module. From empirical results, it is clear that this approach is achieving comparable results to the state-of-the-art approach.
 
-
-
-![](https://raw.githubusercontent.com/ksrath0re/clevr-refplus/master/Example.JPG)
-> Example of Referring Expression Comprehension on CLEVR-Ref+ Dataset
 ![](https://github.com/ksrath0re/clevr-refplus/blob/master/Example.JPG)
+> Example of Referring Expression Comprehension on CLEVR-Ref+ Dataset
 You can set up a virtual environment to run the code like this:
 
 ```bash
@@ -78,4 +82,27 @@ For testing the model, we use ` run_model.py ` file and run it in the root direc
 
 ```
 python -u run_model.py --ckp_path <checkpoint-file>.pt --result_dir <dir_name> | tee <File-name>.txt
+```
+
+### Citation
+
+```
+@article{liu2019clevr,
+  author    = {Runtao Liu and
+               Chenxi Liu and
+               Yutong Bai and
+               Alan Yuille},
+  title     = {CLEVR-Ref+: Diagnosing Visual Reasoning with Referring Expressions},
+  journal   = {arXiv preprint arXiv:1901.00850},
+  year      = {2019}
+}
+```
+```
+@InProceedings{Mascharka_2018_CVPR,
+author = {Mascharka, David and Tran, Philip and Soklaski, Ryan and Majumdar, Arjun},
+title = {Transparency by Design: Closing the Gap Between Performance and Interpretability in Visual Reasoning},
+booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+month = {June},
+year = {2018}
+} 
 ```
