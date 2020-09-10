@@ -8,6 +8,8 @@ Although this approach is effective, it has been established that the current be
 on CLEVR-Ref+ dataset deals with bias issues by constructing a synthetic dataset and provides an approach for the aforementioned task which performed better than
 the previous state-of-the-art models as well as showing the reasoning process. This work aims to improve the performance on CLEVR-Ref+ dataset and achieve comparable interpretability. In this work, the neural module network approach with the attention map technique is employed. The neural module network is composed of the primitive operation modules which are specific to their functions and the output is generated using a separate segmentation module. From empirical results, it is clear that this approach is achieving comparable results to the state-of-the-art approach.
 
+PDF of the thesis document can be found [here](https://github.com/ksrath0re/clevr-refplus/blob/master/Referring%20Expression%20Comprehension%20for%20CLEVR-Ref%2B%20Dataset%205.0.pdf).
+
 ![](https://github.com/ksrath0re/clevr-refplus/blob/master/Example.JPG)
 > Example of Referring Expression Comprehension on CLEVR-Ref+ Dataset
 
