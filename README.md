@@ -10,6 +10,8 @@ the previous state-of-the-art models as well as showing the reasoning process. T
 
 ![](https://github.com/ksrath0re/clevr-refplus/blob/master/Example.JPG)
 > Example of Referring Expression Comprehension on CLEVR-Ref+ Dataset
+
+
 You can set up a virtual environment to run the code like this:
 
 ```bash
