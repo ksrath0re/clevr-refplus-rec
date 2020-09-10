@@ -56,3 +56,22 @@ python preprocess_refexps.py \
 ```
 
 When preprocessing referring expressions, we create a file vocab.json which stores the mapping between tokens and indices for referring expressions and programs. We create this vocabulary when preprocessing the training referring expressions, then reuse the same vocabulary file for the val referring expressions
+
+### Step 4: Train the model
+
+We simply use `train-model.py` file and run it in the root directory. If you want to see the command line output in a file, run something like below:
+
+```
+python -u train-model.py | tee <File-name.txt>
+
+```
+We trained our model for 30 epochs on single GPU (Yeah..... That was so much time consuming).
+
+### Step 5: Test the model
+
+For testing the model, we use ` run_model.py ` file and run it in the root directory as below:
+
+```
+python -u run_model.py --ckp_path checkpoints/<checkpoint-file-name>.pt --result_dir val_results | tee <File-name>.txt
+
+```
